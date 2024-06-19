@@ -12,18 +12,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
+			],
+			todos: [
+				{
+					label: "Wash Car",
+					id: 1,
+					isDone: false
+				},
+				{
+					label: "Do Homework",
+					id: 2,
+					isDone: false
+					
+				}
 			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
+			//exampleFunction: () => {
+			//	getActions().changeColor(0, "green");
+			//},
+			//loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
-			},
+			//},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -37,6 +50,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			getTodos: () => {
+				const store = getStore();
+				console.log(store);
 			}
 		}
 	};
